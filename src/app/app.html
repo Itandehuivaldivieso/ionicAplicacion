@@ -1,1 +1,27 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar color="violeta">
+      <ion-title>Menu Desplegable</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+
+      <button  ion-item (click)="abrirPagina(lista1)">
+        <ion-icon name="ribbon" item-start ></ion-icon>
+        lista
+      </button>
+      <button  ion-item (click)="abrirPagina(inicio)">
+        <ion-icon name="ribbon" item-start ></ion-icon>
+        Servicio web
+      </button>
+      <button  ion-item (click)="abrirPagina(homep)">
+          <ion-icon name="ribbon" item-start ></ion-icon>
+          Inicio
+        </button>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content></ion-nav>

@@ -1,0 +1,55 @@
+<!--
+  Generated template for the ListaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title></ion-title>
+
+      <ion-buttons>
+        <button ion-button
+                icon-only
+                menuToggle>
+                <ion-icon name="menu"></ion-icon>
+
+        </button>
+        <button ion-button icon-only>
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </button>
+      </ion-buttons>
+
+    </ion-navbar>
+
+  </ion-header>
+<ion-content>
+
+    <h2 style="text-align: center;">Catalogo de Alumnos</h2>
+
+    <h2>Fecha</h2><ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="today"></ion-datetime>
+
+
+    <ion-list>
+    <ion-item *ngFor="let alumno of lista">
+
+
+      <ion-label> {{alumno.Nombre}} </ion-label>
+      <ion-select (ionChange)="showSelectValue($event, alumno.id ,alumno.Nombre);">
+          <ion-option value="asistio">asistio</ion-option>
+          <ion-option value="retardo">retardo</ion-option>
+          <ion-option value="falta">falta</ion-option>
+          <ion-option value="justificado">justificado</ion-option>
+        </ion-select>
+        <ion-input type="text" value="{{alumno.Nombre}}" style="visibility: hidden;"> </ion-input>
+        <ion-input type="text" value="{{alumno.id}}" style="visibility: hidden;"> </ion-input>
+
+
+  </ion-item>
+
+</ion-list>
+
+<button ion-button full (click)="enviar()">Enviar</button>
+
+   </ion-content>

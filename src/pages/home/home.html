@@ -1,14 +1,43 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+
+  <ion-navbar color="primary">
+    <ion-title></ion-title>
+
+    <ion-buttons>
+      <button ion-button
+              icon-only
+              menuToggle>
+              <ion-icon name="menu"></ion-icon>
+
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+<ion-content>
+
+    <h2 style="text-align: center;">Catalogo de Alumnos</h2>
+    <ion-list>
+    <ion-item *ngFor="let alumno of lista">
+
+    <p>
+        <ion-fab right bottom>
+            <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+            <ion-fab-list side="left">
+              <button ion-fab icon-only (click)="consultarbyid(alumno.id)"><ion-icon name="search"></ion-icon></button>
+              <button ion-fab icon-only (click)="showConfirm(alumno.id)"><ion-icon name="trash"></ion-icon></button>
+              <button ion-fab icon-only (click)="showConfirm(alumno.id)"><ion-icon name="cog"></ion-icon></button>
+            </ion-fab-list>
+          </ion-fab>
+    <b>{{alumno.Nombre}}</b>
+    </p>
+
+    </ion-item>
+    </ion-list>
+
+   </ion-content>
